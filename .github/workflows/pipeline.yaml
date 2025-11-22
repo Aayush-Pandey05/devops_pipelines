@@ -1,24 +1,24 @@
 name: CI Pipeline # name of the workflow
 
-on: # This workflow is triggered on pushes to the main branch 
+on: # This workflow is triggered on pushes to the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs: # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    -name: Checkout code
-    uses: actions/checkout@v5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-    -name: Set up node js
-    uses: actions/setup-node@v3
-    with:
-      node-version: 16
+      - name: Set up node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    -name: Install Dependencies
-    run: npm install
-    
-    -name: Run Tests
-    run: npm test
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
